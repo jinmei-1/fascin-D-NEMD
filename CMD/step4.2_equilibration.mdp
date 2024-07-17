@@ -1,0 +1,40 @@
+integrator              = md
+dt                      = 0.002
+nsteps                  = 25000000
+nstxout-compressed      = 25000
+nstvout                 = 0
+nstfout                 = 0
+nstenergy               = 5000
+nstlog                  = 5000
+;
+cutoff-scheme           = Verlet
+nstlist                 = 20
+vdwtype                 = Cut-off
+vdw-modifier            = None
+DispCorr                = EnerPres
+rvdw                    = 1.0
+rlist                   = 1.0
+rcoulomb                = 1.0
+coulombtype             = PME
+;
+tcoupl                  = v-rescale
+tc_grps                 = SOLU SOLV
+tau_t                   = 0.1 0.1
+ref_t                   = 310 310
+;
+pcoupl                  = berendsen
+pcoupltype              = isotropic
+tau_p                   = 1.0
+compressibility         = 4.5e-5
+ref_p                   = 1.0
+;
+constraints             = all-bonds
+constraint_algorithm    = LINCS
+continuation            = yes
+;
+nstcomm                 = 100
+comm_mode               = linear
+comm_grps               = SOLU SOLV
+;
+pbc                     = xyz 
+;    
